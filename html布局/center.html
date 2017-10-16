@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义水平垂直居中</title>
+</head>
+<style>
+body{
+	margin:0;
+	padding: 0;
+}
+.float .left{
+	float: left;
+}
+.float .right{
+	float: right;
+}
+
+.position{
+	position: relative;
+}
+.position .right{
+	position: absolute;
+	right: 0;
+}
+.position .left{
+	position: absolute;
+	left: 0;
+}
+
+.grail{
+	height: 200px;
+}
+.grail .wrap{
+	width: 100%;
+	float: left;
+}
+.grail .left{
+	float: left;
+	margin-left: -100%;
+}
+.grail .right{
+	float: left;
+	margin-left: -200px;
+}
+
+.flex{
+	display: flex;
+}
+.flex .center{
+	margin:0 !important;
+	flex: 1;
+}
+
+
+
+.container{
+
+}
+.container .box{
+	width: 200px;
+	height: 200px;
+	text-align: center;
+	line-height: 200px;
+	background-color: red;
+}
+.container .center{
+	position: relative;
+	margin:0 200px;
+	height: 200px;
+	text-align: center;
+	background-color: yellow;
+}
+.container .center .child{
+	width: 50%;
+	height: 50%;
+	margin: auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: pink;
+}
+</style>
+<body>
+	<h3>使用自身浮动法定位</h3>  
+	<div class="container float">
+		<div class="left box">固定</div>
+		<div class="right box">固定</div><!-- 这里必须放在left后面 -->
+		<div class="center">自适应宽度
+              <div class="child">自适应宽高且垂直水平居中</div>
+		</div>
+	</div>
+	 <h3>绝对定位</h3>  
+	<div class="container position">
+		<div class="left box">固定</div>
+		<div class="right box">固定</div>
+		<div class="center">自适应宽度
+              <div class="child">自适应宽高且垂直水平居中</div>
+		</div>
+	</div>
+	<h3>圣杯布局</h3>  
+	<div class="container grail">
+		<div class="wrap"><!-- 这里必须放在第一个 -->
+		<div class="center">自适应宽度
+              <div class="child">自适应宽高且垂直水平居中</div>
+		</div>
+		</div>
+		<div class="left box">固定</div>
+		<div class="right box">固定</div>
+	</div>
+	<h3>flex布局</h3>  
+	<div class="container flex">
+		<div class="left box">固定</div>
+		<div class="center">自适应宽度
+              <div class="child">自适应宽高且垂直水平居中</div>
+		</div>
+		<div class="right box">固定</div>
+		
+	</div>
+</body>
+</html>
