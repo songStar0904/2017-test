@@ -10,7 +10,7 @@ function namespace(oNamespace, sPackage) {
     debugger
     for(var i = 0, len = aPackage.length; i < len; i++){
         if(aPackage[i] in oNamespace){
-            if(typeof oNamespace === 'object'){
+            if(typeof oNamespace !== 'object'){
                 oNamespace[aPackage[i]] = {};
             }
         }else{
