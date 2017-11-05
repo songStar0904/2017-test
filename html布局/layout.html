@@ -9,13 +9,42 @@ body{
 	margin:0;
 	padding: 0;
 }
+.container .box{
+	width: 200px;
+	text-align: center;
+	line-height: 200px;
+	background-color: red;
+}
+.container .center{
+	position: relative;
+	height: 200px;
+	text-align: center;
+	background-color: yellow;
+}
+.container .center .child{
+	width: 50%;
+	height: 50%;
+	margin: auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: pink;
+}
+
+/*浮动布局*/
 .float .left{
 	float: left;
 }
 .float .right{
 	float: right;
 }
+.float .center{
+	margin:0 200px;
+}
 
+/*绝对定位布局*/
 .position{
 	position: relative;
 }
@@ -27,7 +56,11 @@ body{
 	position: absolute;
 	left: 0;
 }
+.position .center{
+	margin:0 200px;
+}
 
+/*圣杯布局*/
 .grail{
 	height: 200px;
 }
@@ -43,16 +76,19 @@ body{
 	float: left;
 	margin-left: -200px;
 }
+.grail .center{
+	margin:0 200px;
+}
 
+/*flex布局*/
 .flex{
 	display: flex;
 }
 .flex .center{
-	margin:0 !important;
 	flex: 1;
 }
 
-
+/*table布局*/
 .table{
 	display: table;
 	height: 0;
@@ -62,33 +98,15 @@ body{
 	display: table-cell;
 }
 .table .center{
-	height: 0!important;
+	height: 0;
 }
 
-
-.container .box{
-	width: 200px;
-	text-align: center;
-	line-height: 200px;
-	background-color: red;
-}
-.container .center{
-	position: relative;
-	margin:0 200px;
-	height: 200px;
-	text-align: center;
-	background-color: yellow;
-}
-.container .center .child{
-	width: 50%;
-	height: 50%;
-	margin: auto;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	background-color: pink;
+/*网格布局*/
+.grid{
+	display: grid;
+	width: 100%;
+	grid-template-rows: 200px;
+	grid-template-columns: 200px auto 200px;
 }
 </style>
 <body>
@@ -129,6 +147,14 @@ body{
 	</div>
 	<h3>table布局</h3>  
 	<div class="container table">
+		<div class="left box">固定</div>
+		<div class="center">自适应宽度
+              <div class="child">自适应宽高且垂直水平居中</div>
+		</div>
+		<div class="right box">固定</div>
+	</div>
+	<h3>网格布局</h3>  
+	<div class="container grid">
 		<div class="left box">固定</div>
 		<div class="center">自适应宽度
               <div class="child">自适应宽高且垂直水平居中</div>
