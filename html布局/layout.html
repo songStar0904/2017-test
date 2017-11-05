@@ -53,13 +53,21 @@ body{
 }
 
 
-
-.container{
-
+.table{
+	display: table;
+	height: 0;
+	width: 100%;
 }
+.table>div{
+	display: table-cell;
+}
+.table .center{
+	height: 0!important;
+}
+
+
 .container .box{
 	width: 200px;
-	height: 200px;
 	text-align: center;
 	line-height: 200px;
 	background-color: red;
@@ -118,7 +126,14 @@ body{
               <div class="child">自适应宽高且垂直水平居中</div>
 		</div>
 		<div class="right box">固定</div>
-		
+	</div>
+	<h3>table布局</h3>  
+	<div class="container table">
+		<div class="left box">固定</div>
+		<div class="center">自适应宽度
+              <div class="child">自适应宽高且垂直水平居中</div>
+		</div>
+		<div class="right box">固定</div>
 	</div>
 </body>
 </html>
