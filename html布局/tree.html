@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css树结构</title>
+	<style>
+	ul li{
+		cursor: pointer;
+	}
+		.tree li ul{
+			overflow: hidden;
+			/*transition: height ease 0.5s;*/
+		}
+		.hide{
+			height: 0;
+		}
+	</style>
+</head>
+<body>
+	<ul class="tree" id="tree">
+		<li>1
+			<ul>
+			<li>1-1
+				<ul>
+			<li>1-1-1</li>
+			<li>1-1-2</li>
+			<li>1-1-3</li>
+		     </ul>
+			</li>
+			<li>1-2</li>
+			<li>1-3</li>
+		</ul></li>
+		<li>2</li>
+		<li>3
+		<ul>
+			<li>3-1</li>
+			<li>3-2</li>
+		</ul></li>
+	</ul>
+	<script>
+		var tree = document.getElementById('tree');
+		var child = tree.querySelectorAll('li');
+		console.log(child)
+		bindEvent(tree, 'click', 'li', function(e){
+			var node = e.target.childNodes[1];
+			if (node) {
+				console.log(node, node.className)
+				node.className = node.className == 'hide' ? '' : 'hide';
+			} else {
+				console.log('no child');
+			}
+		})
+		function bindEvent(el, type, selector, fn){
+			if (fn == null) {
+				fn = selector;
+				selector = null;
+			}
+			el.addEventListener(type, function(e){
+				var target;
+				if (selector) {
+					target = e.target;
+					if (target.matches(selector)){
+						fn.call(target, e);
+					}
+				} else {
+					fn(e);
+				}
+			})
+		}
+	</script>
+</body>
+</html>
