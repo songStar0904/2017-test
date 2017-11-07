@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BFC</title>
+</head>
+  <style>
+    section{
+    	margin-top: 20px;
+    }
+  	.margin{
+  		background-color: red;
+  	}
+  	.margin p{
+  		margin: 10px auto 25px;
+  		background-color: yellow;
+  	}
+  	.margin p{
+  		overflow: hidden;
+  	}
+
+  	.layout .left{
+  		float: left;
+  		width: 100px;
+  		height: 100px;
+  		background-color: green;
+  	}
+  	.layout .right{
+  		background-color: yellow;
+  		height: 110px;
+  	}
+
+  	.float .father{
+  		background-color: red;
+  	}
+  	.float .father .left{
+  		float: left;
+  	}
+  	.BFC{
+  		overflow: hidden;
+  	}
+  </style>
+<body>
+	<section class="margin">
+		<h2>没有设置BFC 边距重叠问题 会取大的那个 不会相加，比如下面的p标签上边距10下边距25 他们重叠会取25</h2>
+		<p>1</p>
+		<p>2</p>
+		<div style="overflow: hidden;">
+		<p>3 我被放在bfc里面了 我的上面 边距为10+25=35了</p>
+		</div>
+	</section>
+	<section class="layout">
+		<div class="left"></div>
+		<div class="right">环绕了</div>
+	</section>
+	<section class="layout">
+		<div class="left"></div>
+		<div class="right BFC">设置BFC</div>
+	</section>
+
+	<section class="float">
+		<div class="father">
+			<div class="left">我是浮动子元素 由于脱离文档流 我的父元素架空了</div>
+		</div>
+	</section>
+	<section class="float">
+		<div class="father BFC">
+			<div class="left">我是浮动子元素 利用BFC 清除浮动</div>
+		</div>
+	</section>
+</body>
+</html>
