@@ -62,21 +62,42 @@ body{
 
 /*圣杯布局*/
 .grail{
+	overflow: hidden;/*BFC*/
+	padding: 0 200px;
+}
+.grail>div{
+	float: left;
+	position: relative;
+}
+.grail .left{
+	margin-left: -100%;
+	left: -200px;
+}
+.grail .right{
+	margin-left: -200px;
+	right: -200px;
+}
+.grail .center{
+	width: 100%;
+}
+
+/*双飞翼布局*/
+.wings{
 	height: 200px;
 }
-.grail .wrap{
+.wings .wrap{
 	width: 100%;
 	float: left;
 }
-.grail .left{
+.wings .left{
 	float: left;
 	margin-left: -100%;
 }
-.grail .right{
+.wings .right{
 	float: left;
 	margin-left: -200px;
 }
-.grail .center{
+.wings .center{
 	margin:0 200px;
 }
 
@@ -129,6 +150,14 @@ body{
 	</section>
 	<h3>圣杯布局</h3>  
 	<section class="container grail">
+		<div class="center">自适应宽度
+              <div class="child">自适应宽高且垂直水平居中</div>
+		</div>
+		<div class="left box">固定</div>
+		<div class="right box">固定</div>
+	</section>
+	<h3>双飞翼布局</h3>  
+	<section class="container wings">
 		<div class="wrap"><!-- 这里必须放在第一个 -->
 		<div class="center">自适应宽度
               <div class="child">自适应宽高且垂直水平居中</div>
